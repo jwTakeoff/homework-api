@@ -7,7 +7,12 @@
                   [cprop "0.1.15"]
                   [prismatic/schema "1.1.12"]
                   [mount "0.1.16"]
-                  [clj-jwt "0.1.1"]]
+                  [clj-jwt "0.1.1"]
+                  [ragtime "0.8.0"]
+                  [hikari-cp "2.10.0"]
+                  [org.postgresql/postgresql "42.2.10"]
+                  [webjure/jeesql "0.4.5"]
+                  [cprop "0.1.13"]]
    :ring {:handler homework-api.handler/app}
    :uberjar-name "server.jar"
    :profiles {:dev {:dependencies [[javax.servlet/javax.servlet-api "3.1.0"]

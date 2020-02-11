@@ -1,0 +1,18 @@
+version: "3.0"
+services:
+
+  sc_postgres:
+    image: "postgres:11.1"
+    command: postgres -c shared_preload_libraries='pg_stat_statements' -c pg_stat_statements.track=all
+    restart: always
+    environment:
+      - POSTGRES_USER=takeoff
+      - POSTGRES_PASSWORD=12345678
+      - POSTGRES_DB=homework
+    volumes:
+      - sc_postgres_data:/var/lib/postgresql/data1
+    ports:
+      - "5433:5432"
+
+volumes:
+  sc_postgres_data:
