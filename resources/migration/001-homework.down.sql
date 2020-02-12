@@ -1,0 +1,5 @@
+DROP TABLE users CASCADE;
+DROP TABLE permissions CASCADE;
+DROP TABLE role CASCADE;
+DROP TABLE role_permissions CASCADE;
+DROP TABLE user_roles CASCADE;
