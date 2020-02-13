@@ -5,5 +5,4 @@
 
 (defn get-user-password [email]
   (jdbc/with-db-connection [conn {:datasource @db/datasource}]
-                           (let [rows (query/get-user-password conn {:email email})]
-                             (println rows))))
+                           (query/get-user-password conn {:email email})))

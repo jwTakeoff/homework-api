@@ -16,6 +16,7 @@ WHERE
 ;
 
 -- name: get-user-password
+-- single?: true
 SELECT
     users.password
 FROM
