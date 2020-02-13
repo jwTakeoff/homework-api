@@ -11,10 +11,11 @@
                   [ragtime "0.8.0"]
                   [hikari-cp "2.10.0"]
                   [org.postgresql/postgresql "42.2.10"]
-                  [webjure/jeesql "0.4.5"]
+                  [webjure/jeesql "0.4.7"]
                   [cprop "0.1.13"]]
-   :ring {:handler homework-api.handler/app}
-   :uberjar-name "server.jar"
-   :profiles {:dev {:dependencies [[javax.servlet/javax.servlet-api "3.1.0"]
-                                  [ring/ring-mock "0.3.2"]]
-                   :plugins [[lein-ring "0.12.5"]]}})
+    :ring {:handler homework-api.handler/app}
+    :uberjar-name "server.jar"
+    :profiles {:dev {:dependencies [[javax.servlet/javax.servlet-api "3.1.0"]
+                                    [ring/ring-mock "0.3.2"]]
+                     :plugins      [[lein-ring "0.12.5"]]
+                     :nrepl        {:port 4003}}})
