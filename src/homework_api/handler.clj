@@ -4,7 +4,11 @@
             [schema.core :as s]
             [homework-api.service.permission.user :as user-service]
             [ring.util.http-response :as response]
-            [compojure.api.exception :as ex]))
+            [compojure.api.exception :as ex]
+            [mount.core :as mount]))
+
+;; Where should this really go??
+;;(mount/start)
 
 (s/defschema UserCredentials
   {:email    s/Str

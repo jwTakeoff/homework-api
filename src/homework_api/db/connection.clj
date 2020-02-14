@@ -1,12 +1,6 @@
 (ns homework-api.db.connection
   (:require [jeesql.core :refer [defqueries]]
-            [hikari-cp.core :refer :all]))
+            [hikari-cp.core :refer :all]
+            [homework-api.init :refer [config]]))
 
-(def datasource-options {:server-name   "localhost"
-                         :port-number   5433
-                         :adapter       "postgresql"
-                         :database-name "homework"
-                         :username      "takeoff"
-                         :password      "12345678"})
-
-(def datasource (delay (make-datasource datasource-options)))
+(def datasource (delay (make-datasource (:postgres config))))

@@ -1,0 +1,6 @@
+{:postgres {:server-name   "localhost"
+            :port-number   5433
+            :adapter       "postgresql"
+            :database-name "homework"
+            :username      "takeoff"
+            :password      "12345678"}}
