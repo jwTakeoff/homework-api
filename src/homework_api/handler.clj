@@ -42,17 +42,14 @@
 
       (GET "/permissions" [:as {headers :headers}]
         :return Permissions
-        :headers [h PermissionHeaders]
-        :summary "Gives a list of permissions for the user.")
-      ;;(ok (do
-      ;;      (println (str "X-Token: " h))
-      ;;      verify/verify-token (get h :x-token)
-      ;;      ["a" "b" "c"])))
+        :headers [headers PermissionHeaders]
+        :summary "Gives a list of permissions for the user."
+        (ok (-> (user-service/verify-jwt (:x-token headers))
+                (get-in [:claims :sub])
+                (user-service/get-permissions))))
 
       (POST "/generate-token" []
         :return XToken
         :body [user-credentials UserCredentials]
         :summary "Generates a token for a given user."
         (ok {:token (user-service/generate-jwt user-credentials)})))))
-
-;;(ok {:token (generate/generate-token)})))))

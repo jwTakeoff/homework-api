@@ -13,6 +13,17 @@
   (when-not (authenticated? user-credentials)
     (throw (ex-info authentication-error-message {:type :authentication}))))
 
-(defn generate-jwt [user-credentials]
+(defn generate-jwt [{:keys [email] :as user-credentials}]
   (authenticate user-credentials)
-  (token-utils/generate-token))
+  (token-utils/generate-token email))
+
+(defn verify-jwt [jwt]
+  (let [decoded-jwt (token-utils/verify-token jwt)]
+    (if (some? decoded-jwt)
+      decoded-jwt
+      (throw (ex-info authentication-error-message {:type :authentication})))))
+
+(defn get-permissions [email]
+  (->> (homework-api.repository.db.user/get-user-permissions email)
+       (mapv :permission)))
+

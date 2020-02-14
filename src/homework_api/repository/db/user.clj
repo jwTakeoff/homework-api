@@ -6,3 +6,7 @@
 (defn get-user-password [email]
   (jdbc/with-db-connection [conn {:datasource @db/datasource}]
                            (query/get-user-password conn {:email email})))
+
+(defn get-user-permissions [email]
+  (jdbc/with-db-connection [conn {:datasource @db/datasource}]
+                           (query/get-user-permissions conn {:email email})))
